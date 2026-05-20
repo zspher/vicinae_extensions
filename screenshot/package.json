@@ -35,14 +35,14 @@
     "lint": "vici lint"
   },
   "dependencies": {
-    "@vicinae/api": "^0.20.13"
+    "@vicinae/api": "^0.22.0"
   },
   "peerDependencies": {
     "react": "^19.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.12",
-    "@types/node": "^25.6.0",
-    "typescript": "^5.9.2"
+    "@biomejs/biome": "^2.5.2",
+    "@types/node": "^26.1.0",
+    "typescript": "^6.0.3"
   }
 }

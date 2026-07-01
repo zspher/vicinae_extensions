@@ -38,20 +38,37 @@ export default function SimpleList() {
           icon={s.icon}
           actions={
             <ActionPanel>
-              <Action
-                title="Take Screenshot"
-                onAction={() => runGrimblast(s.action)}
-                shortcut={
-                  Keyboard.Shortcut.Common.New as Keyboard.Shortcut.Common
-                }
-              />
-              <Action
-                title="Take Screenshot & Open Editor"
-                onAction={() => runGrimblast(s.action, true)}
-                shortcut={
-                  Keyboard.Shortcut.Common.Edit as Keyboard.Shortcut.Common
-                }
-              />
+              <ActionPanel.Section>
+                <Action
+                  icon={Icon.Camera}
+                  title="Take Screenshot"
+                  onAction={() => runGrimblast(s.action)}
+                  shortcut={
+                    Keyboard.Shortcut.Common.New as Keyboard.Shortcut.Common
+                  }
+                />
+                <Action
+                  icon={Icon.EditShape}
+                  title="Take Screenshot & Open Editor"
+                  onAction={() => runGrimblast(s.action, true)}
+                  shortcut={
+                    Keyboard.Shortcut.Common.Edit as Keyboard.Shortcut.Common
+                  }
+                />
+              </ActionPanel.Section>
+
+              <ActionPanel.Section>
+                <Action
+                  icon={Icon.Clock}
+                  title="Take Screenshot in 5s"
+                  onAction={() => runGrimblast(`${s.action} -w 5`)}
+                />
+                <Action
+                  icon={Icon.Clock}
+                  title="Take Screenshot in 10s"
+                  onAction={() => runGrimblast(`${s.action} -w 10`)}
+                />
+              </ActionPanel.Section>
             </ActionPanel>
           }
         />

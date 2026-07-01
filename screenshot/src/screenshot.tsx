@@ -6,7 +6,7 @@ const sc = [
   {
     title: "Capture Fullscreen",
     icon: Icon.Monitor,
-    action: "screen -n",
+    action: "output -n",
   },
   {
     title: "Capture Area",
@@ -14,14 +14,14 @@ const sc = [
     action: "area -f -n",
   },
   {
-    title: "Capture Window",
+    title: "Capture Active Window",
     icon: Icon.AppWindow,
     action: "active -n",
   },
   {
-    title: "Capture Fullscreen in 5s",
-    icon: Icon.Clock,
-    action: "screen -w 5 -n",
+    title: "Capture All Screens",
+    icon: Icon.Devices,
+    action: "screen -n",
   },
 ];
 

@@ -2,6 +2,7 @@ import { exec } from "node:child_process";
 import { promisify } from "node:util";
 import {
   closeMainWindow,
+  environment,
   getPreferenceValues,
   showToast,
   Toast,
@@ -32,11 +33,12 @@ export async function runGrimblast(
       ":" +
       String(now.getSeconds()).padStart(2, "0");
     const path = `~/Pictures/Screenshots/${time}.png`;
-
-    await closeMainWindow();
+    const launch = `${environment.extensionName}/${environment.commandName}`;
+    closeMainWindow();
     await sleep(200);
-    await execAsync(
-      `grimblast ${openEditor ? "edit" : "copysave"} ${action} ${path} `,
+    execAsync(
+      `grimblast ${openEditor ? "edit" : "copysave"} ${action} ${path}` +
+      `&& vicinae 'vicinae://launch/@zspher/${launch}'`,
       { env: { ...process.env, GRIMBLAST_EDITOR: editor } },
     );
   } catch (error) {

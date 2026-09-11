@@ -12,32 +12,18 @@ export const execAsync = promisify(exec);
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const { editor } = getPreferenceValues();
+const { editor, saveDir, saveFormat } = getPreferenceValues();
 
 export async function runGrimblast(
   action: string,
   openEditor: boolean = false,
 ): Promise<void> {
   try {
-    const now = new Date();
-    const time =
-      now.getFullYear() +
-      "-" +
-      String(now.getMonth() + 1).padStart(2, "0") +
-      "-" +
-      String(now.getDate()).padStart(2, "0") +
-      "T" +
-      String(now.getHours()).padStart(2, "0") +
-      ":" +
-      String(now.getMinutes()).padStart(2, "0") +
-      ":" +
-      String(now.getSeconds()).padStart(2, "0");
-    const path = `~/Pictures/Screenshots/${time}.png`;
     const launch = `${environment.extensionName}/${environment.commandName}`;
     closeMainWindow();
     await sleep(200);
     execAsync(
-      `grimblast ${openEditor ? "edit" : "copysave"} ${action} ${path}` +
+      `grimblast ${openEditor ? "edit" : "copysave"} ${action} ${saveDir}/$(date +${saveFormat})` +
       `&& vicinae 'vicinae://launch/@zspher/${launch}'`,
       { env: { ...process.env, GRIMBLAST_EDITOR: editor } },
     );

@@ -22,10 +22,26 @@
     {
       "name": "editor",
       "title": "Editor",
-      "description": "The editor used to annotate screenshots",
+      "description": "Editor used to annotate screenshots",
       "required": true,
       "type": "textfield",
       "default": "gimp"
+    },
+    {
+      "name": "saveDir",
+      "title": "Screenshot Directory",
+      "description": "Directory where screenshots are saved",
+      "required": true,
+      "type": "directory",
+      "default": "~/Pictures/Screenshots"
+    },
+    {
+      "name": "saveFormat",
+      "title": "Filename Format",
+      "description": "Date format passed to the Linux date utility when generating screenshot filenames",
+      "required": true,
+      "type": "textfield",
+      "default": "%Y-%m-%dT%H-%M-%S"
     }
   ],
   "scripts": {

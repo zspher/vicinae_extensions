@@ -43,17 +43,13 @@ export default function SimpleList() {
                   icon={Icon.Camera}
                   title="Take Screenshot"
                   onAction={() => runGrimblast(s.action)}
-                  shortcut={
-                    Keyboard.Shortcut.Common.New as Keyboard.Shortcut.Common
-                  }
+                  shortcut={Keyboard.Shortcut.Common.New}
                 />
                 <Action
                   icon={Icon.EditShape}
                   title="Take Screenshot & Open Editor"
                   onAction={() => runGrimblast(s.action, true)}
-                  shortcut={
-                    Keyboard.Shortcut.Common.Edit as Keyboard.Shortcut.Common
-                  }
+                  shortcut={Keyboard.Shortcut.Common.Edit}
                 />
               </ActionPanel.Section>
 
